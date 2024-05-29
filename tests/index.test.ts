@@ -1,17 +1,22 @@
+import express, { Application } from "express";
 import supertest from "supertest";
-import app from "../src/app";
+import { runBasicMiddlewares } from "../src/runBasicMiddlewares";
+import { runRouteHandlers } from "../src/runRouteHandlers";
 
-const allowedOrigin = "https://example.com";
+// minimal test setup
+const app: Application = express();
+runBasicMiddlewares(app);
+runRouteHandlers(app);
 
 describe("GET /", () => {
+    const allowedOrigin = "https://example.com";
+
     describe("CORS", () => {
         // test preflight
         it("should return 204 for preflight", async () => {
             const response = await supertest(app)
                 .options("/test")
                 .set("Origin", allowedOrigin);
-
-            console.log(response.headers);
 
             expect(response.status).toBe(204);
             expect(response.headers["access-control-allow-origin"]).toBe(

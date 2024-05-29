@@ -1,5 +1,9 @@
+import cors, { CorsOptions } from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import { Application } from "express";
 import rateLimit from "express-rate-limit";
-import { CorsOptions } from "cors";
+
 const port = process.env.PORT || 3000;
 
 export const allowedOrigins = [
@@ -9,7 +13,7 @@ export const allowedOrigins = [
 const allowedMethods = ["GET"];
 const allowedHeaders = ["Content-Type", "Authorization"];
 
-export const corsOptions: CorsOptions = {
+const corsOptions: CorsOptions = {
     allowedHeaders,
     methods: allowedMethods,
     origin: (origin, callback) => {
@@ -30,3 +34,14 @@ export const rateLimitHandler = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 requests per window
 });
+
+export function runBasicMiddlewares(app: Application) {
+    // standard security
+    app.use(morgan("combined"));
+    app.use(helmet());
+    app.use(cors(corsOptions));
+    app.options("*", cors(corsOptions)); // Enable pre-flight across-the-board
+    app.use(rateLimitHandler);
+
+    // TODO: parsing
+}
