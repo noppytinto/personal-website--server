@@ -1,0 +1,29 @@
+# env stuff
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# ignore node stuff
+node_modules
+npm-debug.log
+
+# ignore ide stuff
+.idea
+.vscode
+*.iml
+
+# ignore build stuff
+dist
+build
+coverage
+*.map
+
+# ignore other stuff
+*.log
+*.log.*
+*.log-*
+*.log/*
+*.log-*/
+*.DS_Store
