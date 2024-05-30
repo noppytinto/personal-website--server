@@ -1,6 +1,8 @@
 import { ErrorRequestHandler } from "express";
 
 // TODO: use express router
+// somehow router.use() does not catch errors
+
 export const errorRoute: ErrorRequestHandler = (err, _req, res, _next) => {
     // if CORS error, return 403
     if (err.message === "Not allowed by CORS") {

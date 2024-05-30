@@ -1,7 +1,7 @@
 import cors, { CorsOptions } from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import { Application } from "express";
+import { Express } from "express";
 import rateLimit from "express-rate-limit";
 import { getPort } from "./config";
 
@@ -39,7 +39,7 @@ export const rateLimitHandler = rateLimit({
     max: 100, // limit each IP to 100 requests per window
 });
 
-export function runBasicMiddlewares(app: Application) {
+export function runBasicMiddlewares(app: Express) {
     // standard security
     app.use(morgan("combined"));
     app.use(helmet());

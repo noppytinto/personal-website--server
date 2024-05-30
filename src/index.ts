@@ -4,7 +4,7 @@ import { runRouteHandlers } from "./runRouteHandlers";
 import { getPort } from "./config";
 
 const port = getPort();
-const app: Application = express();
+const app = express();
 
 runBasicMiddlewares(app);
 // main app

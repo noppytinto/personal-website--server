@@ -1,9 +1,9 @@
-import { Application } from "express";
+import { Express } from "express";
 import errorRouteHandler from "./routes/errorRoute";
 import helloWorldRoute from "./routes/helloWorldRoute";
 import notFoundRoute from "./routes/notFoundRoute";
 
-export function runRouteHandlers(app: Application) {
+export function runRouteHandlers(app: Express) {
     app.get("/hello", helloWorldRoute);
 
     // catchall for 404 errors
