@@ -3,14 +3,12 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { Express } from "express";
 import rateLimit from "express-rate-limit";
-import { getPort } from "./config";
+import { getBaseURL, getPort } from "./config";
 
 const port = getPort();
+const baseURL = getBaseURL();
 
-export const allowedOrigins = [
-    `http://localhost:${port}`,
-    "https://example.com",
-];
+export const allowedOrigins = [`${baseURL}:${port}`];
 const allowedMethods = ["GET"];
 const allowedHeaders = ["Content-Type", "Authorization"];
 
@@ -18,7 +16,7 @@ const corsOptions: CorsOptions = {
     allowedHeaders,
     methods: allowedMethods,
     origin: (origin, callback) => {
-        console.log("origin: ", origin);
+        console.log("fffffffffffffffffffff origin: ", origin);
 
         if (!origin) {
             callback(null, true);
