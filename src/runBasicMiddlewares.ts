@@ -3,8 +3,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { Application } from "express";
 import rateLimit from "express-rate-limit";
+import { getPort } from "./config";
 
-const port = process.env.PORT || 3000;
+const port = getPort();
 
 export const allowedOrigins = [
     `http://localhost:${port}`,
@@ -17,12 +18,15 @@ const corsOptions: CorsOptions = {
     allowedHeaders,
     methods: allowedMethods,
     origin: (origin, callback) => {
+        console.log("origin: ", origin);
+
         if (!origin) {
             callback(null, true);
             return;
         }
 
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        const originFound = allowedOrigins.indexOf(origin) !== -1 || !origin;
+        if (originFound) {
             callback(null, true);
         } else {
             callback(new Error("Not allowed by CORS"));

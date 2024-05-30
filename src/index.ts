@@ -1,10 +1,9 @@
-import dotenv from "dotenv";
 import express, { Application } from "express";
 import { runBasicMiddlewares } from "./runBasicMiddlewares";
 import { runRouteHandlers } from "./runRouteHandlers";
+import { getPort } from "./config";
 
-dotenv.config();
-const port = process.env.PORT || 3000;
+const port = getPort();
 const app: Application = express();
 
 runBasicMiddlewares(app);

@@ -1,13 +1,9 @@
-// error route
+import { ErrorRequestHandler } from "express";
 
-import { Request, Response, NextFunction } from "express";
+// TODO: use express router
+export const errorRoute: ErrorRequestHandler = (err, _req, res, _next) => {
+    console.error("fffffffffffffffffffffffffffffff: ", err);
 
-export const errorRoute = (
-    err: Error,
-    _req: Request,
-    res: Response,
-    _next: NextFunction
-) => {
     // if CORS error, return 403
     if (err.message === "Not allowed by CORS") {
         res.setHeader("Content-Type", "text/plain; charset=utf-8");

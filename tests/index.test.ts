@@ -1,16 +1,16 @@
-import express, { Application } from "express";
+import express from "express";
 import supertest from "supertest";
 import { runBasicMiddlewares } from "../src/runBasicMiddlewares";
 import { runRouteHandlers } from "../src/runRouteHandlers";
 
 // minimal test setup
-const app: Application = express();
+const app = express();
 runBasicMiddlewares(app);
 runRouteHandlers(app);
 
-describe("GET /", () => {
-    const allowedOrigin = "https://example.com";
+const allowedOrigin = "https://example.com";
 
+describe("GET /", () => {
     describe("CORS", () => {
         // test preflight
         it("should return 204 for preflight", async () => {
@@ -44,27 +44,27 @@ describe("GET /", () => {
         });
 
         it("should return 403 for CORS error", async () => {
-            // Define a disallowed origin
-            const disallowedOrigin = "http://example.com";
-
-            // Make a GET request to your server from the disallowed origin
             const response = await supertest(app)
                 .get("/test")
-                .set("Origin", disallowedOrigin);
+                .set("Origin", "notallowed.com");
 
-            // Assert that the server responds with CORS error
-            expect(response.statusCode).toBe(403); // Or whatever status code your server responds with for CORS error
+            expect(response.statusCode).toBe(403);
         });
     });
 
     it('should return 200 and "Hello, world!"', async () => {
-        const response = await supertest(app).get("/hello");
+        const response = await supertest(app)
+            .get("/hello")
+            .set("Origin", allowedOrigin);
+
         expect(response.status).toBe(200);
         expect(response.text).toBe("Hello, world!");
     });
 
     it("should return 404 for unknown path", async () => {
-        const response = await supertest(app).get("/unknown");
+        const response = await supertest(app)
+            .get("/unknown")
+            .set("Origin", allowedOrigin);
         expect(response.status).toBe(404);
         expect(response.text).toBe("Path not found");
     });
