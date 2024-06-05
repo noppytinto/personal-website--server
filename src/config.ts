@@ -8,3 +8,7 @@ export function getPort() {
 export function getBaseURL() {
     return process.env.BASE_URL;
 }
+
+export function getAppUrl() {
+    return process.env.APP_URL;
+}
