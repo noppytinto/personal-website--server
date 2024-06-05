@@ -1,0 +1,184 @@
+{
+  "usableSessionsCount": 1,
+  "retiredSessionsCount": 3,
+  "sessions": [
+    {
+      "id": "session_cB3PG6paUR",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.4",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-06-05T01:42:31.786Z",
+      "createdAt": "2024-06-05T00:52:31.786Z",
+      "usageCount": 3,
+      "maxUsageCount": 50,
+      "errorScore": 7
+    },
+    {
+      "id": "session_jiC6Cdi7yK",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.4",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-06-05T01:42:32.335Z",
+      "createdAt": "2024-06-05T00:52:32.335Z",
+      "usageCount": 3,
+      "maxUsageCount": 50,
+      "errorScore": 7
+    },
+    {
+      "id": "session_ZSbKnC1Zun",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.4",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-06-05T01:42:32.495Z",
+      "createdAt": "2024-06-05T00:52:32.495Z",
+      "usageCount": 3,
+      "maxUsageCount": 50,
+      "errorScore": 7
+    },
+    {
+      "id": "session_mONNgUfW0Z",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.4",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "TADCID",
+            "value": "5ICfFfhtjHrVS3mPABQCmq6heh9ZSU2yA8SXn9Wv5H4FYZjmqREY95fbjDaMgd2xXk1_2fCWaYAEKfB26ye4q0ayqfpFG-IPJUg",
+            "expires": "2034-06-03T00:52:32.000Z",
+            "maxAge": 315360000,
+            "domain": "www.tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.213Z",
+            "lastAccessed": "2024-06-05T00:52:33.213Z"
+          },
+          {
+            "key": "TASameSite",
+            "value": "1",
+            "maxAge": 315360000,
+            "domain": "www.tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.214Z",
+            "lastAccessed": "2024-06-05T00:52:33.214Z",
+            "sameSite": "strict"
+          },
+          {
+            "key": "TAUnique",
+            "value": "%1%enc%3ACIWsEMyAqQAPMzps1a6nAaTl7wlpzAnUSnEG9lHOrMkpR4jpMKtF8CjeDgEknwI1Nox8JbUSTxk%3D",
+            "expires": "2026-06-05T00:52:32.000Z",
+            "maxAge": 63072000,
+            "domain": "tripadvisor.com",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.215Z",
+            "lastAccessed": "2024-06-05T00:52:33.215Z"
+          },
+          {
+            "key": "__vt",
+            "value": "65WUFaX6NnwjHXwOABQCwRB1grfcRZKTnW7buAoPsS3jAQPzMzPsN6F93D81BpWpR5ziCZRNgUvQonSs45a4LKCGpyJQIGB3Hn3lTgZyos0geauaE6Vrq94B5fzmcm4H6jqvPKSGMZEgtaktupq-qTFs",
+            "expires": "2024-06-05T01:52:32.000Z",
+            "maxAge": 3600,
+            "domain": "www.tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.219Z",
+            "lastAccessed": "2024-06-05T00:52:33.219Z"
+          },
+          {
+            "key": "TASID",
+            "value": "CA761D7B7624F56D9F576A46D683E87F",
+            "maxAge": 1800,
+            "domain": "www.tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.220Z",
+            "lastAccessed": "2024-06-05T00:52:33.220Z"
+          },
+          {
+            "key": "datadome",
+            "value": "VQ~eD8y7hhjqSX09~1H~T1s7tIGs7gY2s8RIoAtBoPgYv4nTYNbL24R~g7_AoVDTrrJg7~cIceVNdAj5YSUKF3u_R8_q8i52WEqH2HpEzVlrnUVy21BE1fQzT8K8nDYH",
+            "maxAge": 31104000,
+            "domain": "tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.220Z",
+            "lastAccessed": "2024-06-05T00:52:33.220Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "_abck",
+            "value": "16D2F427C7FE2C424DC27B9C0D08DC25~-1~YAAQyRXfrarUEKaPAQAAEyHi5Qx2vbLfv7ajDqlZ8XJR1sQ81M7ijDyaDBrrGEUI8IWQuJW9u9k2sg0ZVVWPSqVtjM7KLsmYvriB19YYX3TZHDkp+qxXtzYDnSBp8gK/o0I8EbMDvg3WZT27/vatYOmX4BfaMeWqBwhD++C5Wbx1YsD+E4fbtXdDkwFjLOe1bq5TMKZZNVngBjJPMYlppJp6oS7g8+jkad90Ay3mV4qBhHi+kX6uWDgxfhr0SPIcBL4OEzvfMTzC8sbLmmjUlZ1VlM3E4ShUaJny/xtD2VwDch3hk2QrmHKkCNVc0GCje3lNUszKOWI7n0eDzo6ySJtTQ/Zt4y4EJAjx53Qxjp/Px43fym8BMiBI/G1LyfrMjO4=~-1~-1~-1",
+            "expires": "2025-06-05T00:52:33.000Z",
+            "maxAge": 31536000,
+            "domain": "tripadvisor.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.223Z",
+            "lastAccessed": "2024-06-05T00:52:33.223Z"
+          },
+          {
+            "key": "bm_sz",
+            "value": "3BAD03ED065EA514381E0FE41131AE1B~YAAQyRXfravUEKaPAQAAEyHi5Rh0+071yoZBrycC0nlyoxRIopnF3WxFcq/lYnV7WbRkyFVaLk6X5cFNSVzUkwQBc+HPUwp6sf1ymqpaGUUXXg1Q9ZSH31Z9xnFwBSuEUx6hz20w+93LNXnhP6k24ENHpDaXuvIONRWUmItgaLFFzEwMVUVFKI4Cm/snNxesloaIfRvKUGSAELw+aEcRL60GL8dXhzmUFIN9PX4MbUockry45NetgjmxJnYEJb5aEb8wRIn59wltg1qsW8NcMPpqfRHBhF1uLztsurWZ9LLV/UtPipJjoFfZkAPEanGoQfoXYF1U3cixsltZ9CgW5lzJxAd91KF3EqIU/8r6OlhXCHY9VYObo9EhUtNqcOO0u96qoUrp/G8EGTNzgdnsmE99~4408133~3420737",
+            "expires": "2024-06-05T04:52:32.000Z",
+            "maxAge": 14399,
+            "domain": "tripadvisor.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2024-06-05T00:52:33.223Z",
+            "lastAccessed": "2024-06-05T00:52:33.223Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2024-06-05T01:42:32.648Z",
+      "createdAt": "2024-06-05T00:52:32.648Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}
