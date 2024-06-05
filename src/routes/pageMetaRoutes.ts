@@ -4,6 +4,7 @@ import { CheerioCrawler, PuppeteerCrawler } from "crawlee";
 import { RequestHandler } from "express";
 import jsdom from "jsdom";
 import { isValidURL } from "../utils/url";
+import { get } from "http";
 
 type PageMetadata = {
     title: string;
@@ -24,7 +25,7 @@ const pageMetaRoute: RequestHandler = async (req, res) => {
         title: "",
         description: "",
         image: "",
-        favicon: "",
+        favicon: getFaviconSrc(baseUrl),
         error: false,
     };
     let isError403 = false;
@@ -52,18 +53,29 @@ const pageMetaRoute: RequestHandler = async (req, res) => {
                     error
                 );
 
-                if ((error as Error).message.includes("403")) {
-                    isError403 = true;
-                } else {
-                    cheerioResponse = {
-                        title: "",
-                        description: "",
-                        image: "",
-                        favicon: "",
-                        error: true,
-                        errorMessage: String(error),
-                    };
-                }
+                // if ((error as Error).message.includes("403")) {
+                //     isError403 = true;
+
+                //     cheerioResponse = {
+                //         title: "",
+                //         description: "",
+                //         image: "",
+                //         favicon: getFaviconSrc(baseUrl),
+                //         error: true,
+                //         errorMessage: String(error),
+                //     };
+                // } else {
+
+                // }
+
+                cheerioResponse = {
+                    title: "",
+                    description: "",
+                    image: "",
+                    favicon: getFaviconSrc(baseUrl),
+                    error: true,
+                    errorMessage: String(error),
+                };
             },
 
             // Let's limit our crawls to make our tests shorter and safer.
@@ -73,64 +85,64 @@ const pageMetaRoute: RequestHandler = async (req, res) => {
         // Add first URL to the queue and start the crawl.
         await crawler.run([sanitizedUrl]);
 
-        if (isError403) {
-            console.log(
-                "fffffffffffffffffffffffffffffffffffffffffff trying with puppeteer"
-            );
-            // try with puppeteer
-            // PuppeteerCrawler crawls the web using a headless
-            // browser controlled by the Puppeteer library.
-            const puppeteerCrawler = new PuppeteerCrawler({
-                // Use the requestHandler to process each of the crawled pages.
-                async requestHandler({ request, page, enqueueLinks, log }) {
-                    await page.waitForNetworkIdle();
-                    await page.waitForSelector("body");
-                    const html = await page.content();
-                    const $ = load(html);
+        // if (isError403) {
+        //     console.log(
+        //         "fffffffffffffffffffffffffffffffffffffffffff trying with puppeteer"
+        //     );
+        //     // try with puppeteer
+        //     // PuppeteerCrawler crawls the web using a headless
+        //     // browser controlled by the Puppeteer library.
+        //     const puppeteerCrawler = new PuppeteerCrawler({
+        //         // Use the requestHandler to process each of the crawled pages.
+        //         async requestHandler({ request, page, enqueueLinks, log }) {
+        //             await page.waitForNetworkIdle();
+        //             await page.waitForSelector("body");
+        //             const html = await page.content();
+        //             const $ = load(html);
 
-                    cheerioResponse = {
-                        title: getTitle($),
-                        description: getDescription($),
-                        image: getImageSrc($, baseUrl),
-                        favicon: getFaviconSrc(baseUrl),
-                        error: false,
-                    };
-                },
-                // headless: false,
-                async failedRequestHandler({ request, error, log }) {
-                    console.error(
-                        "fffffffffffffffffffffffffffffffffffffffffff puppeteer failedRequestHandler: ",
-                        error
-                    );
+        //             cheerioResponse = {
+        //                 title: getTitle($),
+        //                 description: getDescription($),
+        //                 image: getImageSrc($, baseUrl),
+        //                 favicon: getFaviconSrc(baseUrl),
+        //                 error: false,
+        //             };
+        //         },
+        //         // headless: false,
+        //         async failedRequestHandler({ request, error, log }) {
+        //             console.error(
+        //                 "fffffffffffffffffffffffffffffffffffffffffff puppeteer failedRequestHandler: ",
+        //                 error
+        //             );
 
-                    cheerioResponse = {
-                        title: "",
-                        description: "",
-                        image: "",
-                        favicon: "",
-                        error: true,
-                        errorMessage: String(error),
-                    };
-                },
-                maxRequestsPerCrawl: 100,
-            });
+        //             cheerioResponse = {
+        //                 title: "",
+        //                 description: "",
+        //                 image: "",
+        //                 favicon: "",
+        //                 error: true,
+        //                 errorMessage: String(error),
+        //             };
+        //         },
+        //         maxRequestsPerCrawl: 100,
+        //     });
 
-            // Add first URL to the queue and start the crawl.
-            await puppeteerCrawler.run([sanitizedUrl]);
+        //     // Add first URL to the queue and start the crawl.
+        //     await puppeteerCrawler.run([sanitizedUrl]);
 
-            res.setHeader("Content-Type", "application/json; charset=utf-8")
-                .status(200)
-                .json({
-                    title: cheerioResponse.title,
-                    description: cheerioResponse.description,
-                    image: cheerioResponse.image,
-                    favicon: cheerioResponse.favicon,
-                    error: cheerioResponse.error,
-                    errorMessage: cheerioResponse.errorMessage,
-                });
+        //     res.setHeader("Content-Type", "application/json; charset=utf-8")
+        //         .status(200)
+        //         .json({
+        //             title: cheerioResponse.title,
+        //             description: cheerioResponse.description,
+        //             image: cheerioResponse.image,
+        //             favicon: cheerioResponse.favicon,
+        //             error: cheerioResponse.error,
+        //             errorMessage: cheerioResponse.errorMessage,
+        //         });
 
-            return;
-        }
+        //     return;
+        // }
 
         res.setHeader("Content-Type", "application/json; charset=utf-8")
             .status(200)
@@ -156,7 +168,7 @@ const pageMetaRoute: RequestHandler = async (req, res) => {
                 title: "",
                 description: "",
                 image: "",
-                favicon: "",
+                favicon: getFaviconSrc(baseUrl),
                 error: true,
                 errorMessage: String(error),
             });
